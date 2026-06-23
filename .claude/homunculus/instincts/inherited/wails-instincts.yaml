@@ -1,0 +1,433 @@
+# Instincts generated from https://github.com/WangNingkai/wails
+# Generated: 2026-05-01T13:29:08.308Z
+# Version: 2.0
+# NOTE: This file supplements (does not replace) any existing curated instincts.
+# High-confidence manually curated instincts should be preserved alongside these.
+
+---
+id: wails-commit-conventional
+trigger: "when writing a commit message"
+confidence: 0.85
+domain: git
+source: repo-analysis
+source_repo: https://github.com/WangNingkai/wails
+---
+
+# Wails Commit Conventional
+
+## Action
+
+Use conventional commit format with prefixes: fix, chore
+
+## Evidence
+
+- 5 commits analyzed
+- Detected conventional commit pattern
+- Examples: fix(build): use runtime.GOARCH for default processor architecture (#5256), chore(changelog): auto-add entry for PR #5232 — fix(v3/linux): preserve application name in .desktop file generation
+
+---
+id: wails-commit-length
+trigger: "when writing a commit message"
+confidence: 0.6
+domain: git
+source: repo-analysis
+source_repo: https://github.com/WangNingkai/wails
+---
+
+# Wails Commit Length
+
+## Action
+
+Write moderate-length commit messages (~82 characters)
+
+## Evidence
+
+- Average commit message length: 82 chars
+- Based on 5 commits
+
+---
+id: wails-naming-files
+trigger: "when creating a new file"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/WangNingkai/wails
+---
+
+# Wails Naming Files
+
+## Action
+
+Use snake_case naming convention
+
+## Evidence
+
+- Analyzed file naming patterns in repository
+- Dominant pattern: snake_case
+
+---
+id: wails-import-relative
+trigger: "when importing modules"
+confidence: 0.75
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/WangNingkai/wails
+---
+
+# Wails Import Relative
+
+## Action
+
+Use relative imports for project files
+
+## Evidence
+
+- Import analysis shows relative import pattern
+- Example: import { x } from '../lib/x'
+
+---
+id: wails-export-style
+trigger: "when exporting from a module"
+confidence: 0.7
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/WangNingkai/wails
+---
+
+# Wails Export Style
+
+## Action
+
+Prefer named exports
+
+## Evidence
+
+- Export pattern analysis
+- Dominant style: named
+
+---
+id: wails-workflow-bugfix-with-test-update
+trigger: "when doing bugfix with test update"
+confidence: 0.6
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/WangNingkai/wails
+---
+
+# Wails Workflow Bugfix With Test Update
+
+## Action
+
+Follow the bugfix-with-test-update workflow:
+1. Identify and fix the bug in the relevant implementation file(s).
+2. Update or add test files to cover the bug scenario.
+3. Commit both the fix and the test update together.
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~2x per month
+- Files: **/*.go, **/*.js, **/*_test.go
+
+---
+id: wails-workflow-platform-specific-build-asset-update
+trigger: "when doing platform specific build asset update"
+confidence: 0.6
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/WangNingkai/wails
+---
+
+# Wails Workflow Platform Specific Build Asset Update
+
+## Action
+
+Follow the platform-specific-build-asset-update workflow:
+1. Update template or configuration files for a specific platform (e.g., macOS, Linux).
+2. Update or add related test files to validate the change.
+3. Commit all related files together.
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~2x per month
+- Files: v3/internal/commands/build_assets/**, v3/internal/commands/updatable_build_assets/**, v3/internal/commands/dot_desktop.go
+
+---
+id: wails-workflow-changelog-entry-for-pr
+trigger: "when doing changelog entry for pr"
+confidence: 0.6
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/WangNingkai/wails
+---
+
+# Wails Workflow Changelog Entry For Pr
+
+## Action
+
+Follow the changelog-entry-for-pr workflow:
+1. Edit the UNRELEASED_CHANGELOG.md file.
+2. Add a new entry summarizing the PR and referencing its number.
+3. Commit the changelog update.
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~2x per month
+- Files: v3/UNRELEASED_CHANGELOG.md
+
+---
+id: wails-instinct-file-naming
+trigger: "When creating or renaming a file in the codebase."
+confidence: 0.85
+domain: code-style
+source: repo-analysis
+source_repo: WangNingkai/wails
+---
+
+# Wails Instinct File Naming
+
+## Action
+
+Use snake_case for file names.
+
+## Evidence
+
+- Pattern in files: v3/internal/commands/dot_desktop.go
+- Architecture analysis: namingConventions.files = snake_case
+
+---
+id: wails-instinct-function-naming
+trigger: "When defining a new function."
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: WangNingkai/wails
+---
+
+# Wails Instinct Function Naming
+
+## Action
+
+Use camelCase for function names.
+
+## Evidence
+
+- Architecture analysis: namingConventions.functions = camelCase
+
+---
+id: wails-instinct-class-naming
+trigger: "When defining a new class or struct."
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: WangNingkai/wails
+---
+
+# Wails Instinct Class Naming
+
+## Action
+
+Use PascalCase for class or struct names.
+
+## Evidence
+
+- Architecture analysis: namingConventions.classes = PascalCase
+
+---
+id: wails-instinct-constant-naming
+trigger: "When defining a constant."
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: WangNingkai/wails
+---
+
+# Wails Instinct Constant Naming
+
+## Action
+
+Use SCREAMING_SNAKE_CASE for constant names.
+
+## Evidence
+
+- Architecture analysis: namingConventions.constants = SCREAMING_SNAKE_CASE
+
+---
+id: wails-instinct-import-style
+trigger: "When importing modules or packages."
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: WangNingkai/wails
+---
+
+# Wails Instinct Import Style
+
+## Action
+
+Use relative import paths.
+
+## Evidence
+
+- Architecture analysis: importStyle = relative
+
+---
+id: wails-instinct-export-style
+trigger: "When exporting functions or variables."
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: WangNingkai/wails
+---
+
+# Wails Instinct Export Style
+
+## Action
+
+Use named exports.
+
+## Evidence
+
+- Architecture analysis: exportStyle = named
+
+---
+id: wails-instinct-test-location
+trigger: "When adding or updating tests."
+confidence: 0.85
+domain: testing
+source: repo-analysis
+source_repo: WangNingkai/wails
+---
+
+# Wails Instinct Test Location
+
+## Action
+
+Place test files alongside implementation files, using *_test.go or *.test.js naming.
+
+## Evidence
+
+- Pattern in files: v3/internal/commands/dot_desktop_test.go
+- Architecture: testLocation = mixed
+
+---
+id: wails-instinct-test-update-with-fix
+trigger: "When fixing a bug."
+confidence: 0.9
+domain: testing
+source: repo-analysis
+source_repo: WangNingkai/wails
+---
+
+# Wails Instinct Test Update With Fix
+
+## Action
+
+Update or add corresponding test files to cover the bug scenario.
+
+## Evidence
+
+- Workflow: bugfix-with-test-update
+- Example: fix and test committed together
+
+---
+id: wails-instinct-commit-format
+trigger: "When writing a commit message."
+confidence: 0.95
+domain: git
+source: repo-analysis
+source_repo: WangNingkai/wails
+---
+
+# Wails Instinct Commit Format
+
+## Action
+
+Use Conventional Commits format with a type prefix (e.g., fix, chore) and scope if relevant.
+
+## Evidence
+
+- Seen in commit: fix(build): use runtime.GOARCH for default processor architecture (#5256)
+- Pattern: commits.type = conventional
+
+---
+id: wails-instinct-commit-length
+trigger: "When composing a commit message."
+confidence: 0.7
+domain: git
+source: repo-analysis
+source_repo: WangNingkai/wails
+---
+
+# Wails Instinct Commit Length
+
+## Action
+
+Keep commit messages concise, around 80 characters on average.
+
+## Evidence
+
+- Pattern: commits.averageLength = 82
+
+---
+id: wails-instinct-bugfix-with-test-update
+trigger: "When a bug is fixed in the codebase."
+confidence: 0.9
+domain: workflow
+source: repo-analysis
+source_repo: WangNingkai/wails
+---
+
+# Wails Instinct Bugfix With Test Update
+
+## Action
+
+Update or add test files to cover the fix and commit both the fix and test update together.
+
+## Evidence
+
+- Workflow: bugfix-with-test-update
+- Example: fix and test committed together
+
+---
+id: wails-instinct-platform-build-asset-update
+trigger: "When platform requirements change or a bug is found in build asset generation."
+confidence: 0.85
+domain: workflow
+source: repo-analysis
+source_repo: WangNingkai/wails
+---
+
+# Wails Instinct Platform Build Asset Update
+
+## Action
+
+Update platform-specific build assets/configuration and related tests, then commit all together.
+
+## Evidence
+
+- Workflow: platform-specific-build-asset-update
+- Example: asset and test files updated together
+
+---
+id: wails-instinct-changelog-entry-for-pr
+trigger: "When a PR is merged that requires a changelog entry."
+confidence: 0.95
+domain: workflow
+source: repo-analysis
+source_repo: WangNingkai/wails
+---
+
+# Wails Instinct Changelog Entry For Pr
+
+## Action
+
+Edit v3/UNRELEASED_CHANGELOG.md to add a new entry summarizing the PR and referencing its number, then commit.
+
+## Evidence
+
+- Workflow: changelog-entry-for-pr
+- Pattern in files: v3/UNRELEASED_CHANGELOG.md
+
